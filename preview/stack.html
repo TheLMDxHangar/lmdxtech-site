@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>LMDx — color block stacks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --black: #171210; --navy: #122348; --gold: #F9B248; --red: #FC3A52; --sky: #62CDFF;
+    --cream: #F5EDDF; --ink: #111;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: "Archivo", sans-serif; color: var(--cream); background: var(--black); }
+  section { position: relative; padding: 96px 64px; min-height: 900px; overflow: hidden; }
+  .label { display:flex; justify-content:space-between; font: 600 13px/1 "Archivo"; letter-spacing:.14em; text-transform:uppercase; opacity:.7; border-top:1px solid currentColor; padding-top: 16px; margin-bottom: 120px; }
+  .label b { color: var(--red); font-weight: 600; }
+  h1, h2 { font: 800 112px/.92 "Syne", sans-serif; letter-spacing: -.03em; text-transform: uppercase; }
+  h2 { font-size: 96px; }
+  .kicker { font: 600 13px/1 "Archivo"; letter-spacing:.14em; text-transform:uppercase; opacity:.7; margin-bottom: 40px; }
+  .sub { max-width: 46ch; font-size: 19px; line-height:1.5; opacity:.7; margin-top: 40px; }
+  .stripe { position:absolute; left:0; right:0; bottom:0; height:10px;
+    background: linear-gradient(to right, var(--gold) 0 25%, var(--red) 25% 50%, var(--sky) 50% 75%, var(--cream) 75% 100%); }
+  .badge { position:absolute; width: 640px; height:640px; right: -120px; bottom: -140px; border-radius:50%; box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+  .hero .copy { position:relative; z-index:1; }
+  .about p.big { font: 800 60px/1.02 "Syne"; letter-spacing:-.03em; max-width: 18ch; }
+  .about p.big span { opacity: .3; }
+  .row { border-top: 1px solid currentColor; padding: 40px 0; }
+  .row .top { display:flex; justify-content:space-between; font: 600 13px/1 "Archivo"; letter-spacing:.1em; text-transform:uppercase; opacity:.7; margin-bottom: 24px; }
+  .row h3 { font: 800 64px/.95 "Syne"; letter-spacing:-.03em; margin-bottom: 16px; }
+  .row p { opacity:.7; font-size: 18px; max-width: 44ch; }
+  .rows .row:last-child { border-bottom: 1px solid currentColor; }
+  .contact h2 { font-size: 104px; text-transform:none; }
+  .contact .outline { color: transparent; -webkit-text-stroke: 2px currentColor; }
+  .card { display:inline-flex; align-items:center; gap: 40px; border: 1.5px solid currentColor; border-radius: 999px; padding: 24px 24px 24px 36px; margin-top: 56px; }
+  .card .addr { font: 700 32px/1 "Archivo"; letter-spacing:-.02em; }
+  .card .lbl { font: 600 12px/1 "Archivo"; letter-spacing:.1em; text-transform:uppercase; opacity:.7; margin-bottom: 8px; }
+  .card .arrow { width: 64px; height:64px; border:1.5px solid currentColor; border-radius:50%; display:grid; place-items:center; font-size: 24px; }
+  .ghost { position:absolute; right: -10px; bottom: -120px; font: 800 620px/1 "Syne"; letter-spacing:-.06em; opacity:.07; pointer-events:none; }
+  .foot { position:relative; margin-top: 200px; border-top: 1px solid currentColor; padding-top: 20px; display:flex; justify-content:space-between; font: 600 13px/1 "Archivo"; letter-spacing:.1em; text-transform:uppercase; }
+  .bin { position:absolute; inset:0; opacity:.06; font: 500 14px/1.6 ui-monospace, monospace; color: #3FA34D; letter-spacing: .3em; word-break: break-all; padding: 20px; pointer-events:none; }
+
+  /* ---------- variants ---------- */
+  .v1 .hero { background: var(--black); } .v1 .about { background: var(--navy); } .v1 .work { background: var(--black); } .v1 .contact { background: var(--gold); color: var(--ink); }
+  .v2 .hero { background: var(--black); } .v2 .about { background: var(--gold); color: var(--ink); } .v2 .work { background: var(--navy); } .v2 .contact { background: var(--red); color: var(--ink); }
+  .v3 .hero { background: var(--black); } .v3 .about { background: var(--black); } .v3 .work { background: var(--sky); color: var(--ink); } .v3 .contact { background: var(--navy); }
+  .v4 .hero { background: var(--black); } .v4 .about { background: var(--black); } .v4 .work { background: var(--black); } .v4 .contact { background: var(--gold); color: var(--ink); }
+  [class*="v"] .work.dark-on-light .label b { color: var(--red); }
+</style>
+</head>
+<body class="v1">
+
+<section class="hero">
+  <div class="bin">01001100 01001101 01000100 01111000 00100000 01010100 01100101 01100011 01101000 01101110 01101111 01101100 01101111 01100111 01101001 01100101 01110011 00100000 01001100 01001101 01000100 01111000 00100000 01010100 01100101 01100011 01101000 01101110 01101111 01101100 01101111 01100111 01101001 01100101 01110011 00100000 01001100 01001101 01000100 01111000 00100000 01010100 01100101 01100011 01101000 01101110 01101111 01101100 01101111 01100111 01101001 01100101 01110011 00100000 01001100 01001101 01000100 01111000 00100000 01010100 01100101 01100011 01101000 01101110 01101111 01101100 01101111 01100111 01101001 01100101 01110011 00100000 01001100 01001101 01000100 01111000 00100000 01010100 01100101 01100011 01101000 01101110 01101111 01101100 01101111 01100111 01101001 01100101 01110011 00100000 01001100 01001101 01000100 01111000 00100000 01010100 01100101 01100011 01101000 01101110 01101111 01101100 01101111 01100111 01101001 01100101 01110011</div>
+  <div class="copy">
+    <p class="kicker">An independent app studio · Columbia, SC</p>
+    <h1>Good apps.<br>Real<br>personality.</h1>
+    <p class="sub">LMDx Technologies designs and builds its own apps, end to end — clean engineering on the inside, soul on the outside.</p>
+  </div>
+  <img class="badge" src="../assets/lmdx-badge.png" alt="">
+  <div class="stripe"></div>
+</section>
+
+<section class="about">
+  <div class="label"><span><b>01</b>&nbsp;&nbsp;&nbsp;&nbsp;About LMDx Technologies</span></div>
+  <p class="big">LMDx Technologies is an independent app studio in Columbia, South Carolina. A small operation on purpose. <span>The taste runs retro. The engineering doesn't.</span></p>
+</section>
+
+<section class="work">
+  <div class="label"><span>Selected work</span><b>02</b></div>
+  <h2>Selected<br>projects</h2>
+  <div class="rows" style="margin-top:96px">
+    <div class="row"><div class="top"><span>01</span><span>mach-groove.app ↗</span></div><h3>Mach Groove</h3><p>Moves playlists between music services and rebuilds them in new formats along the way.</p></div>
+    <div class="row"><div class="top"><span>02</span><span>Coming 2026</span></div><h3>Beeline</h3><p>Goals, tasks, and habits with zero fluff.</p></div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="ghost">21</div>
+  <div class="label"><span><b>03</b>&nbsp;&nbsp;&nbsp;&nbsp;Contact</span></div>
+  <p class="kicker">Have something in mind?</p>
+  <h2>Let's make<br>something worth<br><span class="outline">talking about.</span></h2>
+  <a class="card"><span><div class="lbl">Start a conversation</div><div class="addr">hello@lmdxtech.com</div></span><span class="arrow">↗</span></a>
+  <div class="foot"><span>LMDx Technologies</span><span>© 2026 · Black-owned · Queer-owned</span><span>Back to top ↑</span></div>
+</section>
+
+<script>
+  const v = new URLSearchParams(location.search).get('v') || '1';
+  document.body.className = 'v' + v;
+</script>
+</body>
+</html>

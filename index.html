@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LMDx Technologies</title>
+  <meta name="description" content="LMDx Technologies is an independent app studio in Columbia, SC. Good apps. Real personality." />
+  <meta property="og:title" content="LMDx Technologies" />
+  <meta property="og:description" content="An independent app studio. Good apps. Real personality." />
+  <meta property="og:image" content="assets/lmdx-badge.png" />
+  <link rel="icon" type="image/png" href="assets/lmdx-badge.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <header class="nav">
+    <a class="nav__brand" href="#top" aria-label="LMDx Technologies — back to top">
+      <img src="assets/lmdx-badge.png" alt="" class="nav__logo" />
+    </a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" data-nav="dark">
+      <div class="hero__bin" id="bin" aria-hidden="true"></div>
+      <div class="hero__copy">
+        <p class="kicker">An independent app studio · Columbia, SC</p>
+        <h1 class="hero__title">
+          <span class="line"><span class="line__inner"><span class="adj" id="adj">Good</span></span></span>
+          <span class="line"><span class="line__inner">apps.</span></span>
+          <span class="line"><span class="line__inner">Real</span></span>
+          <span class="line"><span class="line__inner">personality.</span></span>
+        </h1>
+        <p class="hero__sub">
+          LMDx Technologies designs and builds its own apps, end to end —
+          clean engineering on the inside, soul on the outside.
+        </p>
+      </div>
+      <img src="assets/lmdx-badge.png" alt="" class="hero__badge" aria-hidden="true" />
+      <div class="stripe" aria-hidden="true"></div>
+    </section>
+
+    <!-- ===== 01 ABOUT ===== -->
+    <section class="about" id="about" data-nav="dark">
+      <div class="section-label">
+        <span class="section-label__num">01</span>
+        <span>About</span>
+      </div>
+      <p class="reveal" id="aboutReveal">
+        LMDx Technologies is an independent app studio in Columbia, South Carolina.
+        A small operation on purpose — every product designed, coded, and shipped in-house.
+        The taste runs retro. The engineering doesn't.
+      </p>
+      <dl class="facts">
+        <div><dt>Based in</dt><dd>Columbia, SC</dd></div>
+        <div><dt>Platform</dt><dd>Native iOS, in Swift</dd></div>
+        <div><dt>Backend</dt><dd>Google Cloud</dd></div>
+        <div><dt>Everything else</dt><dd>In-house</dd></div>
+      </dl>
+    </section>
+
+    <div class="stripe stripe--band" aria-hidden="true"></div>
+
+    <!-- ===== 02 WORK ===== -->
+    <section class="work" id="work" data-nav="light">
+      <div class="section-label">
+        <span class="section-label__num">02</span>
+        <span>Selected work</span>
+      </div>
+
+      <h2 class="work__title">
+        <span class="line"><span class="line__inner">Selected</span></span>
+        <span class="line"><span class="line__inner">projects</span></span>
+      </h2>
+
+      <ol class="work__list">
+        <li class="project">
+          <div class="project__top">
+            <span class="project__num">01</span>
+            <a class="project__link" href="https://mach-groove.app" target="_blank" rel="noopener">mach-groove.app ↗</a>
+          </div>
+          <h3 class="project__name">Mach Groove</h3>
+          <p class="project__desc">
+            Moves playlists between music services and rebuilds them in new formats
+            along the way. Honest counts. No song left behind.
+          </p>
+          <div class="project__bottom">
+            <p class="project__tags">iOS · Swift · Music services · Google Cloud</p>
+            <a class="project__more" href="https://mach-groove.app" target="_blank" rel="noopener">Visit site ↗</a>
+          </div>
+        </li>
+
+        <li class="project">
+          <div class="project__top">
+            <span class="project__num">02</span>
+            <span class="project__status">Coming 2026</span>
+          </div>
+          <h3 class="project__name">Beeline</h3>
+          <p class="project__desc">
+            Goals, tasks, and habits with zero fluff. Bee, the mascot, keeps you
+            on the straightest line to done.
+          </p>
+          <div class="project__bottom">
+            <p class="project__tags">iOS · Swift · Productivity</p>
+          </div>
+        </li>
+
+        <li class="project">
+          <div class="project__top">
+            <span class="project__num">03</span>
+            <span class="project__status">In development</span>
+          </div>
+          <h3 class="project__name">Mystic Way</h3>
+          <p class="project__desc">
+            A 16-bit story game set in early-2000s Columbia, South Carolina.
+            Part memoir, part arcade. All heart.
+          </p>
+          <div class="project__bottom">
+            <p class="project__tags">Game · Side-scroller · Original story</p>
+          </div>
+        </li>
+
+        <li class="project">
+          <div class="project__top">
+            <span class="project__num">04</span>
+            <span class="project__status">In development</span>
+          </div>
+          <h3 class="project__name">The TS Madison Experience</h3>
+          <p class="project__desc">
+            A side-scroller with star power. Big personality, bigger boss levels,
+            and a soundtrack to match.
+          </p>
+          <div class="project__bottom">
+            <p class="project__tags">Game · Side-scroller · Licensed talent</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <div class="stripe stripe--band" aria-hidden="true"></div>
+
+    <!-- ===== 03 CONTACT ===== -->
+    <section class="contact" id="contact" data-nav="dark">
+      <span class="contact__ghost" aria-hidden="true">21</span>
+      <div class="section-label">
+        <span class="section-label__num">03</span>
+        <span>Contact</span>
+      </div>
+
+      <p class="kicker">Have something in mind?</p>
+      <h2 class="contact__title">
+        <span class="line"><span class="line__inner">Let's make</span></span>
+        <span class="line"><span class="line__inner">something</span></span>
+        <span class="line"><span class="line__inner">worth <em>talking</em></span></span>
+        <span class="line"><span class="line__inner"><em>about.</em></span></span>
+      </h2>
+
+      <a class="contact__email" href="mailto:hello@lmdxtech.com">
+        <span class="contact__email-label">Start a conversation</span>
+        <span class="contact__email-addr">hello@lmdxtech.com <span class="arrow">↗</span></span>
+      </a>
+
+      <footer class="footer">
+        <div class="footer__row">
+          <span class="footer__brand">LMDx Technologies</span>
+          <a class="footer__top" href="#top">Back to top ↑</a>
+        </div>
+        <div class="footer__row footer__row--meta">
+          <span>© 2026 LMDx Technologies, LLC · Columbia, SC</span>
+          <div class="footer__badges">
+            <span class="owned-badge" title="Black-owned business">
+              <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
+                <circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                <circle cx="8" cy="8" r="2.8" fill="currentColor"/>
+              </svg>
+              Black-owned
+            </span>
+            <span class="owned-badge" title="Queer-owned business">
+              <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
+                <defs>
+                  <linearGradient id="prideRing" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#FC3A52"/>
+                    <stop offset="50%" stop-color="#F9B248"/>
+                    <stop offset="100%" stop-color="#62CDFF"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="8" cy="8" r="6.5" fill="none" stroke="url(#prideRing)" stroke-width="1.6"/>
+                <circle cx="8" cy="8" r="2.8" fill="url(#prideRing)"/>
+              </svg>
+              Queer-owned
+            </span>
+          </div>
+        </div>
+      </footer>
+    </section>
+
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

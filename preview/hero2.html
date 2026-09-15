@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>LMDx — hero badge fixes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg:#171210; --cream:#F5EDDF; --muted:rgba(245,237,223,.55); --gold:#F9B248; --red:#FC3A52; --sky:#62CDFF; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background: var(--bg); color: var(--cream); font-family: "Archivo", sans-serif; }
+  .opt { position:relative; height:900px; padding: 90px 64px 56px; overflow:hidden; border-bottom: 6px solid #0F0C0A; }
+  .tag { position:absolute; top:24px; left:64px; font: 600 13px/1 "Archivo"; letter-spacing:.14em; text-transform:uppercase; color: var(--gold); }
+  .tag span { color: var(--muted); margin-left:14px; letter-spacing:.06em; text-transform:none; font-weight:500; }
+  .nav { position:absolute; top:22px; right:64px; display:flex; gap:28px; font: 500 14px/1 "Archivo"; letter-spacing:.08em; text-transform:uppercase; color: var(--muted); }
+  .kicker { font: 600 13px/1 "Archivo"; letter-spacing:.14em; text-transform:uppercase; color: var(--muted); margin-bottom: 36px; }
+  .sub { max-width: 46ch; font-size: 19px; line-height:1.5; color: var(--muted); margin-top: 40px; }
+  .stripe { position:absolute; left:0; right:0; bottom:0; height:10px; background: linear-gradient(to right, var(--gold) 0 25%, var(--red) 25% 50%, var(--sky) 50% 75%, var(--cream) 75% 100%); }
+  h1 { font: 800 112px/.92 "Syne", sans-serif; letter-spacing:-.03em; text-transform:uppercase; }
+  .copy { position:relative; z-index:1; }
+  .adj { color: var(--gold); }
+  .badge { border-radius:50%; box-shadow: 0 30px 80px rgba(0,0,0,.6); }
+
+  /* Fix A: badge replaces the period — survives any adjective */
+  .a h1 { font-size: 96px; }
+  .a .line1 { display:flex; align-items:flex-end; gap: 0; }
+  .a .badge { width: 88px; height:88px; margin-left: 14px; margin-bottom: 6px; }
+
+  /* Fix B: bleed, but only ~25% cropped — name + logo stay readable */
+  .b .badge { position:absolute; width: 560px; height:560px; right: -90px; bottom: -110px; z-index:0; }
+</style>
+</head>
+<body>
+
+<section class="opt a">
+  <p class="tag">Fix A <span>Badge replaces the period — works with any adjective (rotates: Good → Great → Stupendous → Magnificent)</span></p>
+  <div class="nav"><span>Work</span><span>About</span><span>Contact</span></div>
+  <div class="copy">
+    <p class="kicker">An independent app studio · Columbia, SC</p>
+    <h1>
+      <span class="adj">Stupendous</span><br>
+      <span class="line1">apps<img class="badge" src="../assets/lmdx-badge.png" alt=""></span>
+      Real<br>personality.
+    </h1>
+    <p class="sub">LMDx Technologies designs and builds its own apps, end to end — clean engineering on the inside, soul on the outside.</p>
+  </div>
+  <div class="stripe"></div>
+</section>
+
+<section class="opt b">
+  <p class="tag">Fix B <span>Bleed, but gentler — about 25% cropped, whole wordmark readable, adjective rotates</span></p>
+  <div class="nav"><span>Work</span><span>About</span><span>Contact</span></div>
+  <div class="copy">
+    <p class="kicker">An independent app studio · Columbia, SC</p>
+    <h1><span class="adj">Magnificent</span> apps.<br>Real<br>personality.</h1>
+    <p class="sub">LMDx Technologies designs and builds its own apps, end to end — clean engineering on the inside, soul on the outside.</p>
+  </div>
+  <img class="badge" src="../assets/lmdx-badge.png" alt="">
+  <div class="stripe"></div>
+</section>
+
+</body>
+</html>
