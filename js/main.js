@@ -51,15 +51,12 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matc
   bin.textContent = s;
 })();
 
-// Nav color: read the section sitting under the nav bar and flip to dark text on light ones.
+// Nav: transparent at the very top, solid black bar once the page has scrolled.
 (() => {
-  const update = () => {
-    const el = document.elementFromPoint(window.innerWidth / 2, 44);
-    const section = el && el.closest('[data-nav]');
-    document.body.classList.toggle('nav-on-light', !!section && section.dataset.nav === 'light');
-  };
+  const nav = document.querySelector('.nav');
+  if (!nav) return;
+  const update = () => nav.classList.toggle('nav--solid', window.scrollY > 24);
   window.addEventListener('scroll', update, { passive: true });
-  window.addEventListener('resize', update);
   update();
 })();
 
