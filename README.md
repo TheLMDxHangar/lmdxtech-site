@@ -19,7 +19,6 @@ python3 -m http.server 4519 --directory .
 - `css/style.css` — tokens at top; `--display` controls every giant headline size.
 - `js/main.js` — line reveals (IntersectionObserver), rotating hero adjective, binary-field generator, nav color that follows the section beneath it (`data-nav="light|dark"`), word-by-word About reveal.
 - `assets/lmdx-badge.png` — company badge (source: `~/Downloads/LMDxTech Logo.png`).
-- `preview/` — design-option mockups used during exploration. Not linked from the site; safe to delete or exclude from deploy.
 
 ## Brand notes
 - Headline: "[adjective] apps. Real personality." The adjective deck (in `js/main.js`): Good · Great · Stupendous · Magnificent · Funky · Slick · Soulful.
