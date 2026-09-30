@@ -504,6 +504,7 @@ a.project__card:hover { transform: translate(-3px, -3px); box-shadow: 11px 11px 
 }
 
 @media (max-width: 720px) {
+  :root { --display: 7.2vw; }
   .hero { padding-top: 6rem; padding-bottom: 9rem; }
   .hero__badge { width: 62vw; right: -18%; bottom: -8%; }
   .hero__bin { font-size: 0.7rem; }
