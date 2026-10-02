@@ -1,7 +1,7 @@
 /* ==========================================================
    LMDx Technologies — big wide type, hard color blocks,
    warm black. Syne + Archivo. Badge colors as the accents.
-   Stack: black → black → sky → navy.
+   Stack: black → black → cream → navy.
    ========================================================== */
 
 :root {
@@ -22,7 +22,7 @@
   --font-display: "Syne", sans-serif;
   --font-body: "Archivo", system-ui, sans-serif;
   --gutter: clamp(1.25rem, 4.5vw, 4rem);
-  --display: clamp(2.5rem, 7.8vw, 7rem);
+  --display: clamp(2.5rem, 7.2vw, 7rem);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -126,6 +126,27 @@ h1, h2, h3 {
 .nav__logo { width: 44px; height: 44px; border-radius: 50%; transition: width 0.3s ease, height 0.3s ease; }
 .nav--solid .nav__logo { width: 36px; height: 36px; }
 
+/* wordmark: fades in once the hero has scrolled away. The x is always small. */
+.nav__wordmark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -30%);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  color: var(--cream);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s var(--ease);
+}
+.nav--brand .nav__wordmark { opacity: 1; transform: translate(-50%, -50%); pointer-events: auto; }
+.nav__x { font-size: 0.68em; }
+/* below 900px there's no room between the badge and the links */
+@media (max-width: 900px) { .nav__wordmark { display: none; } }
+
 .nav__links {
   display: flex;
   gap: clamp(1.25rem, 3vw, 2rem);
@@ -183,6 +204,9 @@ h1, h2, h3 {
 .adj { color: var(--gold); display: inline-block; }
 
 .hero__sub {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
   font-size: clamp(1.05rem, 1.7vw, 1.25rem);
   color: var(--cream-soft);
   max-width: 46ch;
@@ -240,9 +264,14 @@ h1, h2, h3 {
   color: var(--cream-soft);
   margin-bottom: 0.25rem;
 }
-.facts dd { font-weight: 500; }
+.facts dd {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
 .facts dd + dd { margin-top: 0.2rem; }
 .soon {
+  font-family: var(--font-body);
   display: inline-block;
   margin-left: 0.4rem;
   font-size: 0.62rem;
@@ -259,15 +288,15 @@ h1, h2, h3 {
 /* ---------- 02 work ---------- */
 
 .work {
-  background: var(--sky);
+  background: var(--cream);
   color: var(--ink);
   padding: 4rem var(--gutter) 6rem;
 }
 .work .section-label__num { color: var(--ink); }
 
 .work__title {
-  font-size: var(--display);
-  margin: 4rem 0 6rem;
+  font-size: clamp(1.6rem, 4.3vw, 4.2rem);
+  margin: 3rem 0 4rem;
 }
 
 .project {
@@ -334,6 +363,136 @@ a.project__card:hover { transform: translate(-3px, -3px); box-shadow: 11px 11px 
 .project__card--gold { background: var(--gold); color: var(--ink); }
 .project__card--navy { background: var(--navy); color: var(--cream); }
 
+/* teaser cards: unreleased projects, censored on purpose */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.redact { background: var(--ink); color: transparent; border-radius: 3px; user-select: none; }
+.blurred { filter: blur(3.5px); user-select: none; }
+.hush { font-size: 0.7em; text-transform: lowercase; }
+
+/* the blurred name is a button: hover offers a peek, a click just scolds you */
+.peek {
+  position: relative;
+  font: inherit;
+  color: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  text-align: left;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.peek__hint,
+.peek__toast {
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 0.55em 0.9em;
+  border-radius: 999px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s var(--ease);
+}
+.peek__hint { background: var(--ink); color: var(--cream); }
+.peek:hover .peek__hint,
+.peek:focus-visible .peek__hint { opacity: 1; transform: none; }
+.peek__toast {
+  background: var(--gold);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  font-size: 0.85rem;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.peek__icon { display: inline-block; width: 1.25em; height: 1.25em; vertical-align: -0.3em; }
+.peek.is-scolded .peek__hint { opacity: 0; }
+.peek.is-scolded .peek__toast { opacity: 1; transform: rotate(-3deg); }
+/* touch screens have no hover, so the hint just sits there */
+@media (hover: none) { .peek__hint { opacity: 1; transform: none; } }
+
+.project__card--censored,
+.project__card--vhs { position: relative; }
+.project__card--censored::after,
+.project__card--vhs::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.28) 0 2px, transparent 2px 4px);
+}
+
+.project__card--censored { background: var(--navy); }
+.censor-mosaic {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+}
+.censor-bar {
+  position: absolute;
+  left: -4%;
+  right: -4%;
+  top: 50%;
+  z-index: 2;
+  transform: translateY(-50%) rotate(-4deg);
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1rem, 2.4vw, 1.9rem);
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.55em 0;
+}
+
+.project__card--vhs { background: #0B0B0B; }
+.vhs__static {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.55;
+  image-rendering: pixelated;
+}
+.vhs__osd {
+  position: absolute;
+  z-index: 2;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-weight: 700;
+  font-size: clamp(0.72rem, 1.5vw, 1.1rem);
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cream);
+  text-shadow: 2px 0 var(--red), -2px 0 var(--sky);
+}
+.vhs__osd--rec { left: 6%; top: 8%; color: var(--red); animation: rec-blink 1.2s steps(1) infinite; }
+.vhs__osd--ch { right: 6%; top: 8%; }
+.vhs__osd--title { left: 6%; bottom: 10%; font-size: clamp(1.05rem, 2.6vw, 2.1rem); }
+.vhs__osd--track { right: 6%; bottom: 10%; }
+@keyframes rec-blink { 50% { opacity: 0; } }
+
 .project__top {
   display: flex;
   justify-content: space-between;
@@ -357,6 +516,9 @@ a.project__card:hover { transform: translate(-3px, -3px); box-shadow: 11px 11px 
 }
 
 .project__desc {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
   font-size: clamp(1.05rem, 1.6vw, 1.35rem);
   color: var(--ink-soft);
   max-width: 44ch;
@@ -504,7 +666,8 @@ a.project__card:hover { transform: translate(-3px, -3px); box-shadow: 11px 11px 
 }
 
 @media (max-width: 720px) {
-  :root { --display: 7.2vw; }
+  :root { --display: 7vw; }
+  .contact__title { font-size: min(2.4rem, 10.5vw); }
   .hero { padding-top: 6rem; padding-bottom: 9rem; }
   .hero__badge { width: 62vw; right: -18%; bottom: -8%; }
   .hero__bin { font-size: 0.7rem; }
@@ -515,4 +678,6 @@ a.project__card:hover { transform: translate(-3px, -3px); box-shadow: 11px 11px 
   html { scroll-behavior: auto; }
   .line__inner { transform: none; transition: none; }
   .hero__badge { opacity: 1; transform: none; transition: none; }
+  .vhs__osd--rec { animation: none; }
+  .peek__hint, .peek__toast { transition: none; }
 }
