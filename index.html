@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LMDx Technologies</title>
-  <meta name="description" content="LMDx Technologies is an independent app studio in Atlanta, GA. Good apps. Real personality." />
+  <meta name="description" content="LMDx Technologies is an independent app studio in Atlanta, GA. Innovative apps. Real personality." />
   <meta property="og:title" content="LMDx Technologies" />
-  <meta property="og:description" content="An independent app studio. Good apps. Real personality." />
+  <meta property="og:description" content="An independent app studio. Innovative apps. Real personality." />
   <meta property="og:image" content="https://lmdxtech.com/assets/lmdx-badge.png" />
   <link rel="icon" type="image/png" href="assets/lmdx-badge.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -21,6 +21,7 @@
     <a class="nav__brand" href="#top" aria-label="LMDx Technologies — back to top">
       <img src="assets/lmdx-badge.png" alt="" class="nav__logo" />
     </a>
+    <a class="nav__wordmark" href="#top" aria-hidden="true" tabindex="-1">LMD<span class="nav__x">x</span> Technologies</a>
     <nav class="nav__links" aria-label="Main">
       <a href="#work">Work</a>
       <a href="#about">About</a>
@@ -36,14 +37,14 @@
       <div class="hero__copy">
         <p class="kicker">An independent app studio · Atlanta, GA</p>
         <h1 class="hero__title">
-          <span class="line"><span class="line__inner"><span class="adj" id="adj">Good</span></span></span>
+          <span class="line"><span class="line__inner"><span class="adj" id="adj">Innovative</span></span></span>
           <span class="line"><span class="line__inner">apps.</span></span>
           <span class="line"><span class="line__inner">Real</span></span>
           <span class="line"><span class="line__inner">personality.</span></span>
         </h1>
         <p class="hero__sub">
           LMDx Technologies designs and builds its own apps, end to end —
-          clean engineering on the inside, soul on the outside.
+          smart under the hood, dazzling on the surface, funky through and through.
         </p>
       </div>
       <img src="assets/lmdx-badge.png" alt="" class="hero__badge" aria-hidden="true" />
@@ -80,12 +81,12 @@
     <section class="work" id="work" data-nav="light">
       <div class="section-label">
         <span class="section-label__num">02</span>
-        <span>Selected work</span>
+        <span>The receipts</span>
       </div>
 
       <h2 class="work__title">
-        <span class="line"><span class="line__inner">Selected</span></span>
-        <span class="line"><span class="line__inner">projects</span></span>
+        <span class="line"><span class="line__inner">Built, shipped,</span></span>
+        <span class="line"><span class="line__inner">and shipping.</span></span>
       </h2>
 
       <ol class="work__list">
@@ -124,7 +125,7 @@
               Beeline
             </h3>
             <p class="project__desc">
-              Goals, tasks, and habits with zero fluff. Bee, the mascot, keeps you
+              Goals, tasks, and habits with zero fluff. Miss Bea, the mascot, keeps you
               on the straightest line to done.
             </p>
             <div class="project__bottom">
@@ -137,27 +138,60 @@
           </div>
         </li>
 
+        <!-- teasers: unreleased projects. The repo is public, so real names never go in this markup. -->
         <li class="project">
           <div class="project__info">
             <div class="project__top">
               <span class="project__num">03</span>
-              <span class="project__status">In development</span>
+              <span class="project__status">Stay tuned</span>
             </div>
             <h3 class="project__name">
-              <span class="project__logo project__logo--ph" aria-hidden="true">M</span>
-              Mystic Way
+              <img src="assets/shush.svg" alt="" class="project__logo" />
+              <span class="sr-only">Project 03, coming soon</span>
+              <button class="peek" type="button" aria-label="Reveal the name">
+                <span class="blurred" aria-hidden="true">S<span class="hush">hh</span>, it’s a secret.</span>
+                <span class="peek__hint" aria-hidden="true">Click to reveal</span>
+                <span class="peek__toast" role="status"></span>
+              </button>
             </h3>
             <p class="project__desc">
-              A 16-bit story game set in early-2000s Columbia, South Carolina.
-              Part memoir, part arcade. All heart.
+              Something's spinning. We're not ready to drop the needle yet. Stay tuned.
             </p>
             <div class="project__bottom">
-              <p class="project__tags">Game · Side-scroller · Original story</p>
+              <p class="project__tags">Coming soon · Tape 03 · Do not rewind</p>
             </div>
           </div>
-          <div class="project__card project__card--ph project__card--navy" aria-hidden="true">
-            <span>Mystic Way</span>
-            <small>In development</small>
+          <div class="project__card project__card--vhs" aria-hidden="true">
+            <canvas class="vhs__static" id="vhsStatic" width="160" height="100"></canvas>
+            <span class="vhs__osd vhs__osd--rec">● REC</span>
+            <span class="vhs__osd vhs__osd--ch">CH 03</span>
+            <span class="vhs__osd vhs__osd--title">Coming soon</span>
+            <span class="vhs__osd vhs__osd--track">Tracking ▮▮▮▯▯</span>
+          </div>
+        </li>
+
+        <li class="project">
+          <div class="project__info">
+            <div class="project__top">
+              <span class="project__num">04</span>
+              <span class="project__status">Classified</span>
+            </div>
+            <h3 class="project__name">
+              <img src="assets/peek.svg" alt="" class="project__logo" />
+              <span class="redact" aria-hidden="true">██████ ███</span>
+              <span class="sr-only">Project 04, under wraps</span>
+            </h3>
+            <p class="project__desc">
+              Project 04 is under wraps. Pixels, a story, and a little nostalgia.
+              That's all you get — for now.
+            </p>
+            <div class="project__bottom">
+              <p class="project__tags">Coming soon · <span class="redact" aria-hidden="true">████</span> · <span class="redact" aria-hidden="true">██████</span></p>
+            </div>
+          </div>
+          <div class="project__card project__card--censored" aria-hidden="true">
+            <div class="censor-mosaic" id="censorMosaic"></div>
+            <span class="censor-bar">Censored</span>
           </div>
         </li>
       </ol>
