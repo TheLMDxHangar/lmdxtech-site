@@ -61,12 +61,6 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matc
   const update = () => nav.classList.toggle('nav--solid', window.scrollY > 24);
   window.addEventListener('scroll', update, { passive: true });
   update();
-
-  // Centered wordmark shows once the hero has scrolled out from under the nav.
-  const hero = document.querySelector('.hero');
-  if (!hero) return;
-  new IntersectionObserver(([e]) => nav.classList.toggle('nav--brand', !e.isIntersecting),
-    { rootMargin: '-64px 0px 0px 0px' }).observe(hero);
 })();
 
 // About paragraph: words light up one by one as the section scrolls through.
