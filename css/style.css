@@ -7,14 +7,19 @@
 :root {
   --black: #171210;
   --black-deep: #0F0C0A;
-  --cream: #F5EDDF;
-  --cream-soft: rgba(245, 237, 223, 0.62);
-  --cream-ghost: rgba(245, 237, 223, 0.16);
+  --cream: #E8D5B7;
+  --cream-soft: rgba(232, 213, 183, 0.62);
+  --cream-ghost: rgba(232, 213, 183, 0.16);
   --ink: #111111;
   --ink-soft: rgba(17, 17, 17, 0.62);
   --ink-ghost: rgba(17, 17, 17, 0.2);
-  --navy: #122348;
-  --gold: #F9B248;
+  /* LMDx brand palette (logo system v3) */
+  --navy: #101A34;
+  --gold: #E0A030;
+  --rust: #C84828;
+  --teal: #2A748E;
+  /* the old bright red + sky stay only where a product card owns them
+     (Beeline placeholder, Project 03's VHS glitch) — not brand colors */
   --red: #FC3A52;
   --sky: #62CDFF;
   --green: #3FA34D;
@@ -84,7 +89,7 @@ h1, h2, h3 {
   text-transform: uppercase;
   opacity: 0.85;
 }
-.section-label__num { color: var(--red); }
+.section-label__num { color: var(--rust); }
 
 /* the badge rings, laid flat — the signature edge */
 .stripe {
@@ -92,8 +97,8 @@ h1, h2, h3 {
   background: linear-gradient(
     to right,
     var(--gold) 0 25%,
-    var(--red) 25% 50%,
-    var(--sky) 50% 75%,
+    var(--rust) 25% 50%,
+    var(--teal) 50% 75%,
     var(--cream) 75% 100%
   );
 }
@@ -111,41 +116,41 @@ h1, h2, h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.1rem var(--gutter);
+  /* clear space: at least the x-height of the LMDx art (61% of its 30px) */
+  padding: 1.15rem var(--gutter);
   background: transparent;
   border-bottom: 1px solid transparent;
-  transition: background 0.3s ease, border-color 0.3s ease, padding 0.3s ease;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 .nav--solid {
   background: var(--black-deep);
   border-bottom-color: var(--cream-ghost);
-  padding-top: 0.7rem;
-  padding-bottom: 0.7rem;
 }
 
-.nav__logo { width: 44px; height: 44px; border-radius: 50%; transition: width 0.3s ease, height 0.3s ease; }
-.nav--solid .nav__logo { width: 36px; height: 36px; }
+/* header: rainbow helmet on the left, the LMDx / Technologies lockup on the right */
+.nav__brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.nav__mark img { width: 48px; height: 48px; }
 
-/* wordmark: fades in once the hero has scrolled away. The x is always small. */
-.nav__wordmark {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -30%);
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.15rem;
-  letter-spacing: -0.01em;
-  white-space: nowrap;
+/* brand lockup (header + footer): LMDx art on top, "Technologies" underneath, spread to the
+   same width. One fixed size on every screen and scroll position — never swaps or resizes. */
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex-shrink: 0;
+  width: 125px;            /* = the LMDx art at 30px tall */
+}
+.brand img { width: 125px; height: 30px; }
+.brand__tech {
+  font-family: "Michroma", var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0.108em;  /* spreads "Technologies" to the LMDx width */
+  line-height: 1;
   color: var(--cream);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s var(--ease);
+  white-space: nowrap;
 }
-.nav--brand .nav__wordmark { opacity: 1; transform: translate(-50%, -50%); pointer-events: auto; }
-.nav__x { font-size: 0.68em; }
-/* below 900px there's no room between the badge and the links */
-@media (max-width: 900px) { .nav__wordmark { display: none; } }
 
 .nav__links {
   display: flex;
@@ -212,20 +217,24 @@ h1, h2, h3 {
   max-width: 46ch;
 }
 
-/* the badge bleeds off the corner — about a quarter cropped */
+/* the badge peeks in from the bottom-right corner, about a quarter off-screen (on purpose) */
 .hero__badge {
   position: absolute;
   z-index: 1;
-  right: -6%;
+  right: -7.5%;
   bottom: -12%;
   width: clamp(260px, 40vw, 580px);
-  border-radius: 50%;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  /* drop-shadow follows the badge's round edge (box-shadow would draw a square) */
+  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.6));
   opacity: 0;
-  transform: translateY(40px) rotate(-6deg);
+  /* tipped 28° counterclockwise so the full LMDx / Technologies arc and the helmet show,
+     with "Technologies" hugging the right edge: he peeks up from the corner.
+     It settles in from a further 6° tip. */
+  transform: translateY(40px) rotate(-34deg);
   transition: opacity 1.4s ease 0.4s, transform 1.4s var(--ease) 0.4s;
 }
-.hero.is-in .hero__badge { opacity: 1; transform: translateY(0) rotate(0); }
+.hero.is-in .hero__badge { opacity: 1; transform: translateY(0) rotate(-28deg); }
+.hero__badge img { width: 100%; height: auto; }
 
 .hero .stripe { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; }
 
@@ -504,8 +513,6 @@ a.project__card:hover { transform: translate(-3px, -3px); box-shadow: 11px 11px 
   color: var(--ink-soft);
   margin-bottom: 1.75rem;
 }
-.project__link { color: var(--ink); transition: color 0.2s ease; }
-.project__link:hover { color: var(--red); }
 
 .project__name {
   display: flex;
@@ -572,7 +579,7 @@ a.project__card:hover { transform: translate(-3px, -3px); box-shadow: 11px 11px 
   font-size: clamp(14rem, 46vw, 40rem);
   line-height: 1;
   letter-spacing: -0.06em;
-  color: rgba(245, 237, 223, 0.06);
+  color: rgba(232, 213, 183, 0.06);
   pointer-events: none;
   user-select: none;
 }
@@ -669,15 +676,58 @@ a.project__card:hover { transform: translate(-3px, -3px); box-shadow: 11px 11px 
   :root { --display: 7vw; }
   .contact__title { font-size: min(2.4rem, 10.5vw); }
   .hero { padding-top: 6rem; padding-bottom: 9rem; }
-  .hero__badge { width: 62vw; right: -18%; bottom: -8%; }
+  .hero__badge { width: 62vw; right: -12%; bottom: -8%; }
   .hero__bin { font-size: 0.7rem; }
   .footer__row--meta { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 540px) {
+  .nav__links { gap: 0.9rem; }
+  .nav__links a { font-size: 0.78rem; letter-spacing: 0.08em; }
+}
+
+/* narrow phones: the helmet + lockup and the three links can't share one row,
+   so the links drop to a slim row of their own under the brand */
+@media (max-width: 440px) {
+  .nav { flex-wrap: wrap; row-gap: 0.7rem; }
+  .nav__links { width: 100%; justify-content: space-between; }
+  .hero { padding-top: 9rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .line__inner { transform: none; transition: none; }
-  .hero__badge { opacity: 1; transform: none; transition: none; }
+  .hero__badge { opacity: 1; transform: rotate(-28deg); transition: none; }
   .vhs__osd--rec { animation: none; }
   .peek__hint, .peek__toast { transition: none; }
 }
+
+/* ---------- 404 ---------- */
+
+.lost {
+  min-height: calc(100svh - 10px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 4rem var(--gutter);
+}
+.lost__icon { width: 120px; height: 120px; margin-bottom: 3rem; }
+.lost .kicker { margin-bottom: 1.25rem; }
+.lost__title { font-size: var(--display); margin-bottom: 1.5rem; }
+.lost__sub {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+  color: var(--cream-soft);
+  max-width: 46ch;
+  margin-bottom: 2.5rem;
+}
+.lost__home {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.1rem, 2.4vw, 1.6rem);
+  border-bottom: 3px solid var(--gold);
+  padding-bottom: 0.15em;
+}
+.lost__home:hover { color: var(--gold); }

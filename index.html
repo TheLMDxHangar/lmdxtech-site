@@ -7,21 +7,49 @@
   <meta name="description" content="LMDx Technologies is an independent app studio in Atlanta, GA. Innovative apps. Real personality." />
   <meta property="og:title" content="LMDx Technologies" />
   <meta property="og:description" content="An independent app studio. Innovative apps. Real personality." />
-  <meta property="og:image" content="https://lmdxtech.com/assets/lmdx-badge.png" />
-  <link rel="icon" type="image/png" href="assets/lmdx-badge.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lmdxtech.com/" />
+  <meta property="og:image" content="https://lmdxtech.com/assets/brand/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="LMDx Technologies" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LMDx Technologies" />
+  <meta name="twitter:description" content="An independent app studio. Innovative apps. Real personality." />
+  <meta name="twitter:image" content="https://lmdxtech.com/assets/brand/og-image.png" />
+  <meta name="twitter:image:alt" content="LMDx Technologies" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#171210" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Archivo:wght@400;500;600&family=Michroma&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
   <!-- ===== NAV ===== -->
   <header class="nav">
-    <a class="nav__brand" href="#top" aria-label="LMDx Technologies — back to top">
-      <img src="assets/lmdx-badge.png" alt="" class="nav__logo" />
+    <!-- brand: "LMDx" logo art on top, "Technologies" as live Michroma text underneath, one size
+         on every screen. Dom's call, 2026-11-17: the wordmark file draws "Technologies" too small. -->
+    <a class="nav__brand" href="#top">
+      <!-- the animated rainbow helmet (sun pulses, gloss sweeps the visor); a still copy for
+           anyone who has "reduce motion" turned on -->
+      <picture class="nav__mark">
+        <source media="(prefers-reduced-motion: reduce)"
+                srcset="assets/brand/lmdx-rainbow.png 1x, assets/brand/lmdx-rainbow@2x.png 2x" />
+        <img src="assets/brand/lmdx-rainbow-anim.png" srcset="assets/brand/lmdx-rainbow-anim@2x.png 2x"
+             width="48" height="48" alt="" />
+      </picture>
+      <span class="brand">
+        <img src="assets/brand/lmdx-letters.png" srcset="assets/brand/lmdx-letters@2x.png 2x"
+             width="167" height="40" alt="LMDx Technologies" />
+        <span class="brand__tech" aria-hidden="true">Technologies</span>
+      </span>
     </a>
-    <a class="nav__wordmark" href="#top" aria-hidden="true" tabindex="-1">LMD<span class="nav__x">x</span> Technologies</a>
     <nav class="nav__links" aria-label="Main">
       <a href="#work">Work</a>
       <a href="#about">About</a>
@@ -47,7 +75,10 @@
           smart under the hood, dazzling on the surface, funky through and through.
         </p>
       </div>
-      <img src="assets/lmdx-badge.png" alt="" class="hero__badge" aria-hidden="true" />
+      <picture class="hero__badge">
+        <img src="assets/brand/lmdx-badge.png" srcset="assets/brand/lmdx-badge@2x.png 2x"
+             width="592" height="580" alt="LMDx Technologies" fetchpriority="high" />
+      </picture>
       <div class="stripe" aria-hidden="true"></div>
     </section>
 
@@ -94,10 +125,10 @@
           <div class="project__info">
             <div class="project__top">
               <span class="project__num">01</span>
-              <a class="project__link" href="https://mach-groove.app" target="_blank" rel="noopener">mach-groove.app ↗</a>
+              <span class="project__status">Coming Holiday 2026</span>
             </div>
             <h3 class="project__name">
-              <img src="assets/mach-groove-mark.png" alt="" class="project__logo" />
+              <img src="assets/mach-groove-mark.png" srcset="assets/mach-groove-mark@2x.png 2x, assets/mach-groove-mark@3x.png 3x" width="64" height="64" alt="" class="project__logo" />
               Mach Groove
             </h3>
             <p class="project__desc">
@@ -110,7 +141,7 @@
             </div>
           </div>
           <a class="project__card" href="https://mach-groove.app" target="_blank" rel="noopener" aria-label="Mach Groove website">
-            <img src="assets/mach-groove-site.jpg" alt="The Mach Groove website" />
+            <img src="assets/mach-groove-site.png" srcset="assets/mach-groove-site@2x.png 2x" width="720" height="450" alt="The Mach Groove website: All songs aboard, with the mission log moving a playlist from YouTube Music to Apple Music" loading="lazy" />
           </a>
         </li>
 
@@ -222,7 +253,11 @@
 
       <footer class="footer">
         <div class="footer__row">
-          <span class="footer__brand">LMDx Technologies</span>
+          <span class="brand">
+            <img src="assets/brand/lmdx-letters.png" srcset="assets/brand/lmdx-letters@2x.png 2x"
+                 width="167" height="40" alt="LMDx Technologies" loading="lazy" />
+            <span class="brand__tech" aria-hidden="true">Technologies</span>
+          </span>
           <a class="footer__top" href="#top">Back to top ↑</a>
         </div>
         <div class="footer__row footer__row--meta">
@@ -234,20 +269,6 @@
                 <circle cx="8" cy="8" r="2.8" fill="currentColor"/>
               </svg>
               Black-owned
-            </span>
-            <span class="owned-badge" title="Queer-owned business">
-              <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
-                <defs>
-                  <linearGradient id="prideRing" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#FC3A52"/>
-                    <stop offset="50%" stop-color="#F9B248"/>
-                    <stop offset="100%" stop-color="#62CDFF"/>
-                  </linearGradient>
-                </defs>
-                <circle cx="8" cy="8" r="6.5" fill="none" stroke="url(#prideRing)" stroke-width="1.6"/>
-                <circle cx="8" cy="8" r="2.8" fill="url(#prideRing)"/>
-              </svg>
-              Queer-owned
             </span>
           </div>
         </div>
